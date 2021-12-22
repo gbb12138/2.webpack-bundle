@@ -15,6 +15,8 @@ webpack打包最终都是commonjs方式，如果不是commonjs的模块会做处
     - 在第一步时，需调用require的其他两个方法
         - require.r => 给exports对象标记是es模块的导出对象，给exports添加__esModule = true;
         - require.d => 遍历模块导出的属性，加到创建的exports对象中
+- 通过es module方式导出，es module方式引入(/bak/4.es+es.js）)
+- 通过commonjs方式导出，es module方式引入(/bak/5.es+common.js）)
 ## commonjs和es modules导出值的区别(/bak/3.comm+es.js）)
 - commonjs 值导出
     - 通过commonjs方式导出模块的时候，给exports赋值，是直接通过值的赋值 =》name=xx; exports.name = name(值)，后续通过异步的方式改变name，仅仅改变了name的值
