@@ -18,7 +18,7 @@ webpack打包最终都是commonjs方式，如果不是commonjs的模块会做处
 - 通过es module方式导出，es module方式引入(/bak/4.es+es.js）)
 - 通过commonjs方式导出，es module方式引入(/bak/5.es+common.js）)
 ## commonjs和es modules导出值的区别(/bak/3.comm+es.js）)
-- commonjs 值导出
+- commonjs 值导出(默认直接是模块，其他模块名)
     - 通过commonjs方式导出模块的时候，给exports赋值，是直接通过值的赋值 =》name=xx; exports.name = name(值)，后续通过异步的方式改变name，仅仅改变了name的值
-- es modules 引用导出
+- es modules 引用导出(默认模块是default，其他模块名)
     - 通过es module的方式导出模块时，给exports赋的是一个个get函数 =》name = xx; exports = { name: () => { name }}; 形成了一个闭包，后续通过异步方式改变name的值，当取exports的name时，取的还是name变量
