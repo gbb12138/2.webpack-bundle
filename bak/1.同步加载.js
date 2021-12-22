@@ -1,5 +1,8 @@
 ;(() => {
-    // 声明模块定义
+    /**
+     * 声明模块定义
+     * @type {{"./src/title.js": modules."./src/title.js"}}
+     */
     var modules = {
         // key是模块的id，相对路径
         // webpack打包之后都是common.js
@@ -8,10 +11,16 @@
             module.exports = 'title'
         }
     }
+
+    /**
+     * 定义require方法
+     * @param moduleId
+     * @returns {*}
+     */
     // 缓存对象，如果模块加载过，就不再加载
     var caches = {}; // 创建缓存
-
     function require (moduleId) {
+        // 处理cache，不再重新生成
         if (caches[moduleId]) {
             return caches[moduleId]
         }
@@ -23,8 +32,11 @@
         // 返回导出的对象
         return module.exports;
     }
+
+    /**
+     * 执行入口文件
+     */
     debugger
-    // 执行入口文件
     let title = require('./src/title.js');
     console.log(title);
 
